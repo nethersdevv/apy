@@ -16,4 +16,4 @@ async def get_recent(limit: int = 60):
         "last_update": int(time.time())
     }
 
-print("🚀 Brainrot API démarrée avec succès sur Railway")
+print("🚀 Brainrot API démarrée avec succès sur Render")
