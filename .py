@@ -1,14 +1,19 @@
 from fastapi import FastAPI
+import os
 import time
 
-app = FastAPI()
+app = FastAPI(title="Brainrot API")
 
 @app.get("/")
-def home():
-    return {"status": "API OK - Test minimal"}
+async def home():
+    return {"status": "✅ API OK", "port": os.getenv("PORT", "8000")}
 
 @app.get("/recent")
-def recent():
-    return {"ok": True, "findings": [], "last_update": int(time.time())}
+async def get_recent(limit: int = 60):
+    return {
+        "ok": True,
+        "findings": [],
+        "last_update": int(time.time())
+    }
 
-print("✅ API minimale démarrée")
+print("🚀 Brainrot API démarrée avec succès sur Railway")
